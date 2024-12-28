@@ -31,7 +31,9 @@ class PostController {
         $pageTitle = 'Cập nhật bài viết';
         $post = $this->postModel->findPost($id);
         if(!$post) {
-            throw new Error('Post not found');
+            $error =  new Error('User not found', 404);
+            throw $error;
+            var_dump($error);
         }
         return view('posts.edit', compact('pageTitle', 'post'));
     }

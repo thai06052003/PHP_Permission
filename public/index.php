@@ -1,4 +1,6 @@
 <?php
+
+use System\Core\CustomeException;
 require_once '../vendor/autoload.php';
 date_default_timezone_set("Asia/Ho_Chi_Minh");
 
@@ -11,6 +13,9 @@ $dotenv->load();
 use Pecee\SimpleRouter\SimpleRouter as Route;
 
 Route::setDefaultNamespace('\App\Controllers');
+
+// Set exception
+new CustomeException();
 
 // Start the routing
 Route::start();
