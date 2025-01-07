@@ -11,4 +11,7 @@
     <li class="nav-item">
         <a href="<?php echo e(url('posts.index')); ?>" class="nav-link">Bài viết</a>
     </li>
+    <li class="nav-item">
+        <a href="<?php echo e(url('permissions.index')); ?>" class="nav-link">Thiết lập</a>
+    </li>
 </ul>

@@ -28,3 +28,11 @@ Route::group(['prefix' => 'posts'], function () {
     Route::post('/edit/{id}', 'PostController@handleUpdate');
     Route::post('/delete/{id}', 'PostController@delete')->name('posts.delete');
 });
+Route::group(['prefix' => 'permissions'], function () {
+    Route::get('/', 'PermissionController@index')->name('permissions.index');
+    Route::get('/add', 'PermissionController@add')->name('permissions.add');
+    Route::post('/add', 'PermissionController@handleAdd');
+    Route::get('/edit/{id}', 'PermissionController@update')->name('permissions.edit');
+    Route::post('/edit/{id}', 'PermissionController@handleUpdate');
+    Route::post('/delete/{id}', 'PermissionController@delete')->name('permissions.delete');
+});
