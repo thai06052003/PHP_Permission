@@ -24,7 +24,7 @@
                                 @foreach ($module->actions as $action)
                                     <div class="col-3">
                                         <label for="">
-                                            <input type="checkbox" name="permissions[]" id="">
+                                            <input type="checkbox" name="permissions[]" id="" value="{{$module->name.'.'.$action->name}}">
                                             {{$action->title}}
                                         </label>
                                     </div>
@@ -35,6 +35,6 @@
                 @endforeach
             </tbody>
         </table>
-        <button class="btn btn-primary">Thêm mới</button>
+        <button class="btn btn-primary">Lưu thay đổi</button>
     </form>
 @endsection

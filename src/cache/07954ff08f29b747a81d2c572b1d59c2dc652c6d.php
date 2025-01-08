@@ -23,7 +23,7 @@
                                 <?php $__currentLoopData = $module->actions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $action): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <div class="col-3">
                                         <label for="">
-                                            <input type="checkbox" name="permissions[]" id="">
+                                            <input type="checkbox" name="permissions[]" id="" value="<?php echo e($module->name.'.'.$action->name); ?>">
                                             <?php echo e($action->title); ?>
 
                                         </label>
@@ -35,7 +35,7 @@
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </tbody>
         </table>
-        <button class="btn btn-primary">Thêm mới</button>
+        <button class="btn btn-primary">Lưu thay đổi</button>
     </form>
 <?php $__env->stopSection(); ?>
 
