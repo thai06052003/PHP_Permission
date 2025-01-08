@@ -21,30 +21,14 @@
                         <td>{{ $module->title }}</td>
                         <td>
                             <div class="row">
-                                <div class="col-3">
-                                    <label for="">
-                                        <input type="checkbox" name="permissions[]" id="">
-                                        Xem
-                                    </label>
-                                </div>
-                                <div class="col-3">
-                                    <label for="">
-                                        <input type="checkbox" name="permissions[]" id="">
-                                        Thêm
-                                    </label>
-                                </div>
-                                <div class="col-3">
-                                    <label for="">
-                                        <input type="checkbox" name="permissions[]" id="">
-                                        Cập nhật
-                                    </label>
-                                </div>
-                                <div class="col-3">
-                                    <label for="">
-                                        <input type="checkbox" name="permissions[]" id="">
-                                        Xóa
-                                    </label>
-                                </div>
+                                @foreach ($module->actions as $action)
+                                    <div class="col-3">
+                                        <label for="">
+                                            <input type="checkbox" name="permissions[]" id="">
+                                            {{$action->title}}
+                                        </label>
+                                    </div>
+                                @endforeach
                             </div>
                         </td>
                     </tr>

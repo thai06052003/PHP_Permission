@@ -20,30 +20,15 @@
                         <td><?php echo e($module->title); ?></td>
                         <td>
                             <div class="row">
-                                <div class="col-3">
-                                    <label for="">
-                                        <input type="checkbox" name="permissions[]" id="">
-                                        Xem
-                                    </label>
-                                </div>
-                                <div class="col-3">
-                                    <label for="">
-                                        <input type="checkbox" name="permissions[]" id="">
-                                        Thêm
-                                    </label>
-                                </div>
-                                <div class="col-3">
-                                    <label for="">
-                                        <input type="checkbox" name="permissions[]" id="">
-                                        Cập nhật
-                                    </label>
-                                </div>
-                                <div class="col-3">
-                                    <label for="">
-                                        <input type="checkbox" name="permissions[]" id="">
-                                        Xóa
-                                    </label>
-                                </div>
+                                <?php $__currentLoopData = $module->actions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $action): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <div class="col-3">
+                                        <label for="">
+                                            <input type="checkbox" name="permissions[]" id="">
+                                            <?php echo e($action->title); ?>
+
+                                        </label>
+                                    </div>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </div>
                         </td>
                     </tr>

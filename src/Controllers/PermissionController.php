@@ -23,12 +23,21 @@ class PermissionController {
     public function add() {
         $pageTitle = 'Phân quyền';
         $modules = $this->moduleModel->getModule();
+        $moduleIds = [];
         foreach($modules as $module) {
-            $module->actions = $this->actionModel->getAction($module->id);
+            $moduleIds[] = $module->id;
         }
-        echo '<pre>';
-        print_r($modules);
-        echo '</pre>';
+
+        $actions = $this->actionModel->getAction($moduleIds);
+        
+        foreach ($modules as $module) {
+            foreach ($actions as $action) {
+                if ($module->id == $action->module_id) {
+                    $module->actions[] = $action;
+                }
+            }
+        }
+
         return view('permissions.add', compact('pageTitle', 'modules'));
     }
 }
