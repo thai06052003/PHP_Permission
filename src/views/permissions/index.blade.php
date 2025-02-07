@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <h1>Phân quyền</h1>
-    <h1>Vai trò</h1>
-    <a href="{{url('permissions.add')}}" class="btn btn-primary my-2">Thêm vai trò</a>
+    <a href="{{ url('permissions.add') }}" class="btn btn-primary my-2">Thêm vai trò</a>
+    <a href="#users-modal" class="btn btn-primary my-2" data-bs-toggle="modal">Gán quyền</a>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -14,14 +14,15 @@
         </thead>
 
         <tbody>
-            @foreach    ($roles as $key=>$role)
-            <tr>
-                <td>{{$key + 1}}</td>
-                <td>{{$role->name}}</td>
-                <td><a href="" class="btn btn-warning">Sửa</a></td>
-                <td><a href="" class="btn btn-danger">Xóa</a></td>
-            </tr>
+            @foreach ($roles as $key => $role)
+                <tr>
+                    <td>{{ $key + 1 }}</td>
+                    <td>{{ $role->name }}</td>
+                    <td><a href="{{ url('permissions.edit', ['id' => $role->id]) }}" class="btn btn-warning">Sửa</a></td>
+                    <td><a href="{{ url('permissions.delete', ['id' => $role->id]) }}" class="btn btn-danger">Xóa</a></td>
+                </tr>
             @endforeach
         </tbody>
     </table>
+    @include('permissions.users')
 @endsection

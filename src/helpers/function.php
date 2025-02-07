@@ -91,3 +91,13 @@ function view($path, $data=[]) {
     $blade = new Blade(_VIEW_PATH, _CACHE_PATH);
     return $blade->view()->make($path, $data)->render();
 }
+//
+function isPermission($permissions, $value) {
+    foreach ($permissions as $permission) {
+        if ($permission->value == $value) {
+            
+            return true;
+        }
+    }
+    return false;
+}
