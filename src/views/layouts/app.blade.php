@@ -11,6 +11,11 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     {{-- Select2 --}}
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+        .select2-container {
+            display: block;
+        }
+    </style>
 </head>
 
 <body>
@@ -43,9 +48,11 @@
     </script>
     <script>
         $(document).ready(function() {
-            $('.js-select').select2(){
-                dropdownParent: $('#users-modal .modal-content')
-            }
+            $('.js-select').select2({
+                dropdownParent: $('#users-modal .modal-content'),
+                placeholder: "Chọn các tùy chọn",
+                allowClear: true
+            });
         });
     </script>
 </body>

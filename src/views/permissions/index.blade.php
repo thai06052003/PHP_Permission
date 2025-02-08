@@ -19,7 +19,11 @@
                     <td>{{ $key + 1 }}</td>
                     <td>{{ $role->name }}</td>
                     <td><a href="{{ url('permissions.edit', ['id' => $role->id]) }}" class="btn btn-warning">Sửa</a></td>
-                    <td><a href="{{ url('permissions.delete', ['id' => $role->id]) }}" class="btn btn-danger">Xóa</a></td>
+                    <td>
+                        <form onsubmit="return confirm('Bạn có chắc chắn?')" action="{{ url('permissions.delete', ['id' => $role->id]) }}" method="POST">
+                            <button href=""class="btn btn-danger">Xóa</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

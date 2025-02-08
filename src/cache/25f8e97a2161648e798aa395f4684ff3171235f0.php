@@ -18,7 +18,11 @@
                     <td><?php echo e($key + 1); ?></td>
                     <td><?php echo e($role->name); ?></td>
                     <td><a href="<?php echo e(url('permissions.edit', ['id' => $role->id])); ?>" class="btn btn-warning">Sửa</a></td>
-                    <td><a href="<?php echo e(url('permissions.delete', ['id' => $role->id])); ?>" class="btn btn-danger">Xóa</a></td>
+                    <td>
+                        <form onsubmit="return confirm('Bạn có chắc chắn?')" action="<?php echo e(url('permissions.delete', ['id' => $role->id])); ?>" method="POST">
+                            <button href=""class="btn btn-danger">Xóa</button>
+                        </form>
+                    </td>
                 </tr>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </tbody>

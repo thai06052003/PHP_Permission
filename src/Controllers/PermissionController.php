@@ -7,6 +7,7 @@ use App\Models\Role;
 use App\Models\Action;
 use App\Models\Module;
 use App\Models\Permission;
+use App\Models\User;
 
 class PermissionController
 {
@@ -14,19 +15,23 @@ class PermissionController
     private $moduleModel;
     private $actionModel;
     private $permissionModel;
+    private $userModel;
     public function __construct()
     {
         $this->roleModel = new Role();
         $this->moduleModel = new Module();
         $this->actionModel = new Action();
         $this->permissionModel = new Permission();
+        $this->userModel = new User();
     }
     // Lấy ra danh sách phân quyền
     public function index()
     {
         $pageTitle = 'Phân quyền';
         $roles = $this->roleModel->getRoles();
-        return view('permissions.index', compact('pageTitle', 'roles'));
+        $users = $this->userModel->getUsers();
+
+        return view('permissions.index', compact('pageTitle', 'roles', 'users'));
     }
     // Hiển thị view thêm vai trò
     public function add()

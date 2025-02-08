@@ -36,6 +36,7 @@
             </tbody>
         </table>
         <button class="btn btn-primary">Lưu thay đổi</button>
+        <a href="<?php echo e(url('permissions.index')); ?>" class="btn btn-secondary">Quay lại</a>
     </form>
 <?php $__env->stopSection(); ?>
 
